@@ -1,6 +1,5 @@
 'use server'
 
-import { prisma } from '@/prisma/prisma-client'
 import { PayOrderTemplate } from '@/shared/components'
 import { VerificationUserTemplate } from '@/shared/components/shared/email-temapltes/verification-user'
 import { CheckoutFormValues } from '@/shared/constants'
@@ -9,6 +8,7 @@ import { getUserSession } from '@/shared/lib/get-user-session'
 import { OrderStatus, Prisma } from '@prisma/client'
 import { hashSync } from 'bcrypt'
 import { cookies } from 'next/headers'
+import { prisma } from 'prisma/prisma'
 
 export async function createOrder(data: CheckoutFormValues) {
 	try {

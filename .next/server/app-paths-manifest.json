@@ -1,3 +1,6 @@
 {
-  "/(checkout)/checkout/page": "app/(checkout)/checkout/page.js"
+  "/(root)/page": "app/(root)/page.js",
+  "/(root)/@modal/(.)product/[id]/page": "app/(root)/@modal/(.)product/[id]/page.js",
+  "/(checkout)/checkout/page": "app/(checkout)/checkout/page.js",
+  "/(root)/product/[id]/page": "app/(root)/product/[id]/page.js"
 }

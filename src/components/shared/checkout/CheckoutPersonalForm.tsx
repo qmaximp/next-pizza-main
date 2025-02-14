@@ -17,6 +17,7 @@ export const CheckoutPersonalForm: React.FC<Props> = ({ className }) => {
 					placeholder='Фамилия'
 				/>
 				<FormInput name='email' className='text-base' placeholder='E-Mail' />
+				{/* !!!СДЕЛАТЬ IMASK-REACT НА ПОЛЕ С ТЕЛЕФОНОМ!!! */}
 				<FormInput name='phone' className='text-base' placeholder='Телефон' />
 			</div>
 		</WhiteBlock>

@@ -11,10 +11,12 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
 	...compat.extends('next/core-web-vitals', 'next/typescript'),
-	// (module.exports = {"rules": {
-	// 	"@next/next/no-img-element": "off",
-	// 	"jsx-a11y/alt-text": "off"
-	// }}),
+	(module.exports = {
+		rules: {
+			'@next/next/no-img-element': 'off',
+			'jsx-a11y/alt-text': 'off',
+		},
+	}),
 ]
 
 export default eslintConfig

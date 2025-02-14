@@ -32,7 +32,7 @@ export const CheckoutSidebar: React.FC<Props> = ({
 					<Skeleton className='h-11 w-48' />
 				) : (
 					<span className='h-11 text-[34px] font-extrabold'>
-						{totalPrice} ₽
+						{Math.round(totalPrice)} ₽
 					</span>
 				)}
 			</div>
