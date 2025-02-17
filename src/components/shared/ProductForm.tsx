@@ -11,14 +11,14 @@ interface Props {
 }
 
 export const ProductForm = ({ product, onSubmit: _onSubmit }: Props) => {
-	const state = useCartStore(state => state)
+	const { addCartItem, loading } = useCartStore(state => state)
 	const firstItem = product.items[0]
 	const isPizzaForm = Boolean(firstItem.pizzaType)
 
 	const onSubmit = async (productItemId?: number, ingredients?: number[]) => {
 		try {
 			const itemId = productItemId ?? firstItem.id
-			await state.addCartItem({
+			await addCartItem({
 				productItemId: itemId,
 				ingredients,
 			})
@@ -38,7 +38,7 @@ export const ProductForm = ({ product, onSubmit: _onSubmit }: Props) => {
 				ingredients={product.ingredients}
 				items={product.items}
 				onSubmit={onSubmit}
-				loading={state.loading}
+				loading={loading}
 			/>
 		)
 	}
@@ -49,7 +49,7 @@ export const ProductForm = ({ product, onSubmit: _onSubmit }: Props) => {
 			name={product.name}
 			onSubmit={onSubmit}
 			price={firstItem.price}
-			loading={state.loading}
+			loading={loading}
 		/>
 	)
 }

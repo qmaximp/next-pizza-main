@@ -29,10 +29,10 @@ export const CheckoutSidebar: React.FC<Props> = ({
 			<div className='flex flex-col gap-1'>
 				<span className='text-xl'>Итого:</span>
 				{loading ? (
-					<Skeleton className='h-11 w-48' />
+					<Skeleton className='h-11 w-48 rounded-[6px]' />
 				) : (
 					<span className='h-11 text-[34px] font-extrabold'>
-						{totalPrice} ₽
+						{Math.round(totalPrice)} ₽
 					</span>
 				)}
 			</div>

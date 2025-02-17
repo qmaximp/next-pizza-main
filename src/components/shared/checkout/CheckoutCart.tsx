@@ -27,11 +27,8 @@ export const CheckoutCart: React.FC<Props> = ({
 	return (
 		<WhiteBlock title='1. Корзина' className={className}>
 			<div className='flex flex-col gap-5'>
-				{loading
-					? [...Array(4)].map((_, index) => (
-							<CheckoutItemSkeleton key={index} />
-					  ))
-					: items.map(item => (
+				{items.length > 0
+					? items.map(item => (
 							<CheckoutItem
 								key={item.id}
 								id={item.id}
@@ -50,6 +47,10 @@ export const CheckoutCart: React.FC<Props> = ({
 								}
 								onClickRemove={() => removeCartItem(item.id)}
 							/>
+					  ))
+					: loading &&
+					  [...Array(4)].map((_, index) => (
+							<CheckoutItemSkeleton key={index} />
 					  ))}
 			</div>
 		</WhiteBlock>

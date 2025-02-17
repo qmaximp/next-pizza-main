@@ -25,8 +25,9 @@ const page = () => {
 		updateItemQuantity(id, newQuantity)
 	}
 
-	// eslint-disable-next-line react-hooks/rules-of-hooks
-	const { totalAmount, updateItemQuantity, items, removeCartItem } = useCart()
+	const { totalAmount, updateItemQuantity, items, removeCartItem, loading } =
+		// eslint-disable-next-line react-hooks/rules-of-hooks
+		useCart()
 
 	// eslint-disable-next-line react-hooks/rules-of-hooks
 	const form = useForm<CheckoutFormValues>({
@@ -60,15 +61,20 @@ const page = () => {
 								onClickCountButton={onClickCountButton}
 								removeCartItem={removeCartItem}
 								items={items}
+								loading={loading}
 							/>
 							{/* 2) personal data */}
-							<CheckoutPersonalForm />
+							<CheckoutPersonalForm
+								className={loading ? 'opacity-40 pointer-events-none' : ''}
+							/>
 							{/* 3) delivery address */}
-							<CheckoutAddressForm />
+							<CheckoutAddressForm
+								className={loading ? 'opacity-40 pointer-events-none' : ''}
+							/>
 						</div>
 						{/* -------------- */}
 						<div className='w-[450px]'>
-							<CheckoutSidebar totalAmount={totalAmount} />
+							<CheckoutSidebar loading={loading} totalAmount={totalAmount} />
 						</div>
 					</div>
 				</form>
