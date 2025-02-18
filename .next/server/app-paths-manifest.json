@@ -1,15 +1,7 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/api/ingredients/route": "app/api/ingredients/route.js",
-  "/api/cart/route": "app/api/cart/route.js",
-  "/api/cart/[id]/route": "app/api/cart/[id]/route.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/api/products/search/route": "app/api/products/search/route.js",
-  "/api/users/route": "app/api/users/route.js",
-  "/(dashboard)/dashboard/page": "app/(dashboard)/dashboard/page.js",
-  "/(root)/@modal/[...catchAll]/page": "app/(root)/@modal/[...catchAll]/page.js",
-  "/(root)/page": "app/(root)/page.js",
+  "/api/cart/route": "app/api/cart/route.js",
   "/(root)/@modal/(.)product/[id]/page": "app/(root)/@modal/(.)product/[id]/page.js",
-  "/(root)/product/[id]/page": "app/(root)/product/[id]/page.js",
+  "/(root)/page": "app/(root)/page.js",
   "/(checkout)/checkout/page": "app/(checkout)/checkout/page.js"
 }

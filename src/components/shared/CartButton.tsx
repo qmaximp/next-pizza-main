@@ -12,16 +12,6 @@ interface Props {
 export const CartButton = ({ className }: Props) => {
 	const state = useCartStore(state => state)
 
-	// const loading = useCartStore(state => state.loading)
-	// const totalAmount = useCartStore(state => state.totalAmount)
-	// const items = useCartStore(state => state.items)
-
-	// const [loading, totalAmount, items] = useCartStore(state => [
-	// 	state.loading,
-	// 	state.totalAmount,
-	// 	state.items,
-	// ])
-
 	return (
 		<CartDrawer>
 			<Button

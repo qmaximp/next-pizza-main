@@ -12,12 +12,17 @@ type Props = {
 	categoryId: number
 	listClassName?: string
 }
+
 const ProductsGroupList = ({ title, items, className, categoryId }: Props) => {
 	const setActiveCategoryId = useCategoryStore(state => state.setActiveId)
+
 	const intersectionRef = useRef(null)
+	//@ts-ignore
 	const intersection = useIntersection(intersectionRef, {
+		root: null,
 		threshold: 0.8,
 	})
+
 	useEffect(() => {
 		if (intersection?.isIntersecting) {
 			setActiveCategoryId(categoryId)

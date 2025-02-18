@@ -34,5 +34,6 @@ export { WhiteBlock } from './WhiteBlock'
 
 export * from './cartItemDetails'
 export * from './checkout'
+export * from './email'
 export * from './form'
 export * from './modals'
