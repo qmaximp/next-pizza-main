@@ -2,7 +2,7 @@
 
 import { PayOrderTemplate } from '@/components'
 import { CheckoutFormValues } from '@/constants/checkoutFormSchema'
-import { sendEmail } from '@/lib'
+import { createPayment, sendEmail } from '@/lib'
 import { OrderStatus } from '@prisma/client'
 import { cookies } from 'next/headers'
 import { prisma } from 'prisma/prisma'
@@ -77,26 +77,26 @@ export async function createOrder(data: CheckoutFormValues) {
 			},
 		})
 
-		// const paymentData = await createPayment({
-		// 	amount: order.totalAmount,
-		// 	orderId: order.id,
-		// 	description: 'Оплата заказа #' + order.id,
-		// })
+		const paymentData = await createPayment({
+			amount: order.totalAmount,
+			orderId: order.id,
+			description: 'Оплата заказа #' + order.id,
+		})
 
-		// if (!paymentData) {
-		// 	throw new Error('Payment data not found')
-		// }
+		if (!paymentData) {
+			throw new Error('Payment data not found')
+		}
 
-		// await prisma.order.update({
-		// 	where: {
-		// 		id: order.id,
-		// 	},
-		// 	data: {
-		// 		paymentId: paymentData.id,
-		// 	},
-		// })
+		await prisma.order.update({
+			where: {
+				id: order.id,
+			},
+			data: {
+				paymentId: paymentData.id,
+			},
+		})
 
-		// const paymentUrl = paymentData.confirmation.confirmation_url
+		const paymentUrl = paymentData.confirmation.confirmation_url
 
 		await sendEmail(
 			data.email,
@@ -107,7 +107,7 @@ export async function createOrder(data: CheckoutFormValues) {
 				paymentUrl: 'https://www.youtube.com/watch?v=l7vmBvAb6b4',
 			})
 		)
-		// 
+		//
 		// return paymentUrl
 	} catch (err) {
 		console.log('[CreateOrder] Server error', err)
