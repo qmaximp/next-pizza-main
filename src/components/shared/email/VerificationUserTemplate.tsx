@@ -9,11 +9,7 @@ export const VerificationUserTemplate = ({ code }: Props) => (
 		</p>
 
 		<p>
-			<a
-				href={`https://next-pizza-main.vercel.app/api/auth/verify?code=${code}`}
-			>
-				Подтвердить регистрацию
-			</a>
+			<a href={`/api/auth/verify?code=${code}`}>Подтвердить регистрацию</a>
 		</p>
 	</div>
 )
