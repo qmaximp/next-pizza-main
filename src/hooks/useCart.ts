@@ -17,7 +17,6 @@ export const useCart = (): ReturnProps => {
 
 	useEffect(() => {
 		cartState.fetchCartItems()
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
 	return cartState

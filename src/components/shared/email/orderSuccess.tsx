@@ -1,12 +1,11 @@
 import { CartItemDTO } from '@/services/dto/cart.dto'
-import React from 'react'
 
 interface Props {
 	orderId: number
 	items: CartItemDTO[]
 }
 
-export const OrderSuccessTemplate: React.FC<Props> = ({ orderId, items }) => (
+export const OrderSuccessTemplate = ({ orderId, items }: Props) => (
 	<div>
 		<h1>Спасибо за покупку! 🎉</h1>
 

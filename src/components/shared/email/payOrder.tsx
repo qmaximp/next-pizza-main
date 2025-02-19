@@ -1,5 +1,3 @@
-import { calcCartItemTotalPrice } from '@/lib'
-
 interface Props {
 	orderId: number
 	totalAmount: number
@@ -15,7 +13,7 @@ export const PayOrderTemplate = ({
 		<h1>Заказ #{orderId}</h1>
 
 		<p>
-			Оплатите заказ на сумму <b>{} ₽</b>. Перейдите{' '}
+			Оплатите заказ на сумму <b>{totalAmount} ₽</b>. Перейдите{' '}
 			<a href={paymentUrl}>по этой ссылке</a> для оплаты заказа.
 		</p>
 	</div>

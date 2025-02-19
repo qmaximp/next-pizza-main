@@ -1,14 +1,19 @@
 'use client'
 
 import { cn } from '@/lib/utils'
-import { User } from 'lucide-react'
+import { useSession } from 'next-auth/react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
-
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
-import { Button, CartButton, Container, SearchInput } from '..'
+import {
+	AuthModal,
+	CartButton,
+	Container,
+	ProfileButton,
+	SearchInput,
+} from '..'
 
 interface Props {
 	hasSearch?: boolean
@@ -22,9 +27,10 @@ export const Headers = ({
 	className,
 }: Props) => {
 	const router = useRouter()
-	// const [openAuthModal, setOpenAuthModal] = useState(false)
+	const [openAuthModal, setOpenAuthModal] = useState(false)
 	const searchParams = useSearchParams()
-
+	const { data: session } = useSession()
+	console.log(session)
 	useEffect(() => {
 		let toastMessage = ''
 
@@ -69,10 +75,11 @@ export const Headers = ({
 
 				{/* right  part */}
 				<div className='flex items-center gap-3'>
-					<Button variant='outline' className='flex items-center gap-1'>
-						<User size={15} />
-						Войти
-					</Button>
+					<AuthModal
+						open={openAuthModal}
+						onClose={() => setOpenAuthModal(false)}
+					/>
+					<ProfileButton onClickSignIn={() => setOpenAuthModal(true)} />
 
 					{hasCart && <CartButton />}
 				</div>

@@ -2,6 +2,7 @@ import {
 	Container,
 	Filters,
 	ProductsGroupList,
+	Stories,
 	Title,
 	TopBar,
 } from '@/components'
@@ -16,6 +17,9 @@ export default async function Home({ searchParams }: { searchParams: Params }) {
 			<Container className='mt-10'>
 				<Title text='Все пиццы' size='lg' className='font-extrabold' />
 			</Container>
+
+			<Stories />
+
 			<TopBar
 				categories={categories.filter(category => category.products.length > 0)}
 			/>

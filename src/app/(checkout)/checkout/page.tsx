@@ -13,18 +13,19 @@ import {
 	CheckoutFormValues,
 } from '@/constants/checkoutFormSchema'
 import { useCart } from '@/hooks'
+import { Api } from '@/services/api-client'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useState } from 'react'
+import { useSession } from 'next-auth/react'
+import { useEffect, useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 
 const page = () => {
 	const [submitting, setSubmitting] = useState(false)
 	const { totalAmount, updateItemQuantity, items, removeCartItem, loading } =
-		// eslint-disable-next-line react-hooks/rules-of-hooks
 		useCart()
+	const { data: session } = useSession()
 
-	// eslint-disable-next-line react-hooks/rules-of-hooks
 	const form = useForm<CheckoutFormValues>({
 		resolver: zodResolver(checkoutFormSchema),
 		defaultValues: {
@@ -36,6 +37,20 @@ const page = () => {
 			comment: '',
 		},
 	})
+	useEffect(() => {
+		async function fetchUserInfo() {
+			const data = await Api.auth.getMe()
+			const [firstName, lastName] = data.fullName.split(' ')
+
+			form.setValue('firstName', firstName)
+			form.setValue('lastName', lastName)
+			form.setValue('email', data.email)
+		}
+
+		if (session) {
+			fetchUserInfo()
+		}
+	}, [session])
 	const onSubmit = async (data: CheckoutFormValues) => {
 		try {
 			setSubmitting(true)
@@ -43,7 +58,6 @@ const page = () => {
 			toast.error('Заказ успешно оформлен! 📝 Переход на оплату... ', {
 				icon: '✅',
 			})
-			// @ts-ignore
 			if (url) {
 				location.href = url
 			}

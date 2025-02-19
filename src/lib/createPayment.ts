@@ -27,8 +27,8 @@ export async function createPayment(details: Props) {
 		},
 		{
 			auth: {
-				username: process.env.YOOKASSA_API_KEY as string,
-				password: '',
+				username: process.env.YOOKASSA_STORE_ID as string,
+				password: process.env.YOOKASSA_API_KEY as string,
 			},
 			headers: {
 				'Content-Type': 'application/json',
