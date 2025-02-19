@@ -1,25 +1,18 @@
 'use client'
-import { useEffect, useState } from 'react'
+
+import React from 'react'
 import { AddressSuggestions } from 'react-dadata'
 import 'react-dadata/dist/react-dadata.css'
+
 interface Props {
 	onChange?: (value?: string) => void
 }
-export const AdressInput = ({ onChange }: Props) => {
-	const [isClient, setIsClient] = useState(false)
-	useEffect(() => {
-		setIsClient(true)
-	}, [])
+
+export const AdressInput: React.FC<Props> = ({ onChange }) => {
 	return (
-		<>
-			{isClient ? (
-				<AddressSuggestions
-					token='1914854afcecce241bef1af5157a2694eda9a351'
-					onChange={(data: { value: string | undefined }) =>
-						onChange?.(data?.value)
-					}
-				/>
-			) : null}
-		</>
+		<AddressSuggestions
+			token='b5b8bb983ddcd08648080e0271d9dd367bb7aa65'
+			onChange={data => onChange?.(data?.value)}
+		/>
 	)
 }
