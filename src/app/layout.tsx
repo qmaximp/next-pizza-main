@@ -1,6 +1,6 @@
 import { Providers } from '@/components'
 import { Nunito } from 'next/font/google'
-import { ReactNode, Suspense } from 'react'
+import { ReactNode } from 'react'
 import './globals.css'
 
 const nunito = Nunito({
@@ -21,9 +21,7 @@ export default function RootLayout({
 				<link data-rh='true' rel='icon' href='/logo.png' />
 			</head>
 			<body className={nunito.variable}>
-				<Suspense>
-					<Providers>{children}</Providers>
-				</Suspense>
+				<Providers>{children}</Providers>
 			</body>
 		</html>
 	)
