@@ -15,7 +15,6 @@ export const AdressInput = ({ onChange }: Props) => {
 			{isClient ? (
 				<AddressSuggestions
 					token='1914854afcecce241bef1af5157a2694eda9a351'
-					//@ts-ignore
 					onChange={(data: { value: string | undefined }) =>
 						onChange?.(data?.value)
 					}

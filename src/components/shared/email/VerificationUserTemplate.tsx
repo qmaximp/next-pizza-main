@@ -9,9 +9,7 @@ export const VerificationUserTemplate = ({ code }: Props) => (
 		</p>
 
 		<p>
-			<a href={`http://localhost:3000/api/auth/verify?code=${code}`}>
-				Подтвердить регистрацию
-			</a>
+			<a href={`/api/auth/verify?code=${code}`}>Подтвердить регистрацию</a>
 		</p>
 	</div>
 )
