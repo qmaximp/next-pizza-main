@@ -1,7 +1,3 @@
-main link project:
+Ссылка на проект в Vercel next-pizza-main.vercel.app
 
-- https://ui.shadcn.com/docs/components/tooltip
-- https://lucide.dev
-- https://www.youtube.com/watch?v=GUwizGbY4cc&t=2722s
-- https://github.com/Archakov06/next-pizza-finished/blob/main/components/shared/categories.tsx
-- http://localhost:3000
+Из-за особенностей библиотеки "resend" сообщения приходят на зарегистрированную почту, тобишь мою "soldatkin.maks2018@yandex.ru", с помощью данной почты вы можете проверить оплату 😊😊
