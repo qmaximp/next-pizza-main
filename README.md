@@ -1,3 +1,3 @@
-Ссылка на проект в Vercel next-pizza-main.vercel.app
+Ссылка на проект в Vercel "https://next-pizza-main.vercel.app/"
 
 Из-за особенностей библиотеки "resend" сообщения приходят на зарегистрированную почту, тобишь мою "soldatkin.maks2018@yandex.ru", с помощью данной почты вы можете проверить оплату 😊😊
